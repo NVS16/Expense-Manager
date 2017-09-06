@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Manage Expenses</title>
+    </head>
+    <body>
+
+        <div id = "navBtns">
+            <button class = "btn btn-info" [class.active] = "show" (click) = "viewExp()" >View Expenses</button>
+            <button class = "btn btn-info" [class.active] = "cat"  (click) = "newCat()" >New Category</button>
+            <button class = "btn btn-info" [class.active] = "exp" (click) = "newExp()" >New Expense</button>
+        </div>
+        <br><br>
+    <div class = "form" *ngIf = "exp" >
+        <h2 class = "title">Add New Expenses</h2>
+        <div class="form-group">
+            <label>Enter Expense Name:</label>
+            <input type="text" class="form-control" [(ngModel)] = "expensePost.name">
+        </div>
+        <div class="form-group">
+            <label for="sel1">Choose Category:</label>
+            <select class="form-control" id="sel1" [(ngModel)] = "expensePost.cat">
+                <option *ngFor = "let obj of categories" >{{ obj.name }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Enter Amount:</label>
+            <input type="number" class="form-control" [(ngModel)] = "expensePost.amt">
+        </div>
+        <div class="form-group">
+                <label for="sel2">Choose Payment Method:</label>
+                <select class="form-control" id="sel2" [(ngModel)] = "expensePost.meth">
+                    <option *ngFor = "let meth of payMeth" >{{ meth }}</option>
+                </select>
+            </div>
+        <button type="submit" class="btn btn-success" (click) = "newExpSubmit()">Submit</button><br><br>
+    </div>
+
+    <div *ngIf = "show">
+            <h2 class = "title">Your Expenses</h2>
+        <div class="panel-group">
+            <div class="panel panel-info" [class.panel-danger] = "obj.totalExpAmount/obj.limit*100 >= 100" 
+            *ngFor = "let obj of categories">
+                <div class = "panel-heading"><b>{{ obj.name }}</b></div>
+                <div class="panel-body">
+                    <ul>
+                        <li><b>Limit : </b>{{ obj.limit }}</li>
+                        <li><b>Toatal Amount Expended : </b>{{ obj.totalExpAmount }}
+                            ({{ obj.totalExpAmount/obj.limit*100 }}%)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+    
+
+
+    <div class = "form" *ngIf = "cat">
+        <h2 class = "title">Add New Category</h2>
+        <div class="form-group">
+        <label>Enter Category Name:</label>
+        <input type="text" class="form-control" [(ngModel)] = "categoryPost.name">
+        </div>
+        <div class="form-group">
+        <label>Enter Limit:</label>
+        <input type="number" class="form-control" [(ngModel)] = "categoryPost.limit">
+        </div>
+        <button type="submit" class="btn btn-success" (click) = "newCatSubmit()" >Submit</button><br><br>
+    </div>
+
+
+    </body>
+</html>

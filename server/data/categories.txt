@@ -1,0 +1,61 @@
+[
+    {
+        "name" : "Food",
+        "limit" : 3000,
+        "expNames" : [
+            "Bananas",
+            "Apples"
+        ],
+        "expAmounts" : [
+            50,
+            100
+        ],
+        "totalExpAmount" : 150,
+        "expMeth" : [
+            "Cash",
+            "Cash"
+        ]
+    },
+    {
+        "name" : "Clothing",
+        "limit" : 5000,
+        "expNames" : [
+            "Denim Jeans"
+        ],
+        "expAmounts" : [
+            2000
+        ],
+        "totalExpAmount" : 2000,
+        "expMeth" : [
+            "Cash"
+        ]
+    },
+    {
+        "name" : "Travel",
+        "limit" : 8000,
+        "expNames" : [
+            "Train to B'lore"
+        ],
+        "expAmounts" : [
+            2000
+        ],
+        "totalExpAmount" : 2000,
+        "expMeth" : [
+            "Debit Card"
+        ]
+    },
+    {
+        "name" : "Bills",
+        "limit" : 3000,
+        "expNames" : [
+            "Electric Bill"
+        ],
+        "expAmounts" : [
+            1000
+        ],
+        "totalExpAmount" : 1000,
+        "expMeth" : [
+            "Cash"
+        ]
+    }
+]
